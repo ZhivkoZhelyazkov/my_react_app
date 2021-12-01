@@ -95,7 +95,7 @@
 
                 // Init Magnific Popup
                 $('.tm-img-slider').magnificPopup({
-                    delegate: 'a', // child items selector, by clicking on it popup will open
+                    delegate: 'Link', // child items selector, by clicking on it popup will open
                     type: 'image',
                     gallery: { enabled: true }
                     // other options
@@ -106,7 +106,7 @@
         // Setup Nav
         function setupNav() {
             // Add Event Listener to each Nav item
-            $(".tm-main-nav a").click(function (e) {
+            $(".tm-main-nav Link").click(function (e) {
                 e.preventDefault();
 
                 var currentNavItem = $(this);
@@ -122,7 +122,7 @@
 
         function changePage(currentNavItem) {
             // Update Nav items
-            $(".tm-main-nav a").removeClass("active");
+            $(".tm-main-nav Link").removeClass("active");
             currentNavItem.addClass("active");
 
             $(currentPageID).hide();
@@ -181,13 +181,13 @@
                 // Handle click of "Continue", which changes to next page
                 // The link contains data-nav-link attribute, which holds the nav item ID
                 // Nav item ID is then used to access and trigger click on the corresponding nav item
-                var linkToAnotherPage = $("a.tm-btn[data-nav-link]");
+                var linkToAnotherPage = $("Link.tm-btn[data-nav-link]");
 
                 if (linkToAnotherPage != null) {
 
                     linkToAnotherPage.on("click", function () {
                         var navItemToHighlight = linkToAnotherPage.data("navLink");
-                        $("a" + navItemToHighlight).click();
+                        $("Link" + navItemToHighlight).click();
                     });
                 }
 
