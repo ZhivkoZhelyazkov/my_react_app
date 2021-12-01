@@ -2,7 +2,7 @@ function Services() {
     return (
         <section id="tm-section-3" className="tm-section">
             <div className="row mb-4">
-                <header className="col-xl-12"><h2 className="tm-text-shadow">Our Services</h2></header>
+                <header className="col-xl-12"><h2 className="tm-text-shadow">Services</h2></header>
             </div>
             <div className="row">
                 <div className="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">

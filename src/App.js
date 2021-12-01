@@ -8,8 +8,9 @@ import Loader from './components/Loader';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Intro from './components/Intro';
-import Products from './components/Products/Products';
+import Projects from './components/Projects/Projects';
 import Services from './components/Services';
+import Products from './components/Products';
 import ContactUs from './components/ContactUs';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -45,8 +46,9 @@ function App() {
 
                         <Routes>
                             <Route path="/" element={<Intro />} />
-                            <Route path="/products" element={<Products />} />
                             <Route path="/services" element={<Services />} />
+                            <Route path="/products" element={<Products />} />
+                            <Route path="/projects" element={<Projects />} />
                             <Route path="/contacts" element={<ContactUs />} />
                             <Route path="/login" element={<Login onLogin={onLogin} />} />
                             <Route path="/register" element={<Register />} />

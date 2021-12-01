@@ -38,15 +38,21 @@ const Sidebar = ({
                             </Link>
                         </li>
                         <li>
-                            <Link to="/products" id="tmNavLink2" className="scrolly" data-bg-img="constructive_bg_02.jpg" data-page="#tm-section-2" data-page-type="carousel">
-                                <i className="fas fa-map tm-nav-fa-icon"></i>
-                                <span>Our Products</span>
+                            <Link to="/services" className="scrolly" data-bg-img="constructive_bg_03.jpg" data-page="#tm-section-3">
+                                <i className="fas fa-users tm-nav-fa-icon"></i>
+                                <span>Services</span>
                             </Link>
                         </li>
                         <li>
-                            <Link to="/services" className="scrolly" data-bg-img="constructive_bg_03.jpg" data-page="#tm-section-3">
+                            <Link to="/products" className="scrolly" data-bg-img="constructive_bg_03.jpg" data-page="#tm-section-1">
                                 <i className="fas fa-users tm-nav-fa-icon"></i>
-                                <span>Our Services</span>
+                                <span>Products</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/projects" id="tmNavLink2" className="scrolly" data-bg-img="constructive_bg_02.jpg" data-page="#tm-section-2" data-page-type="carousel">
+                                <i className="fas fa-map tm-nav-fa-icon"></i>
+                                <span>Projects</span>
                             </Link>
                         </li>
                         <li>
@@ -58,18 +64,6 @@ const Sidebar = ({
 
                         {isAuthenticated ? '' : [userNav, guestNav]}
 
-                        {/* <li>
-                            <Link to="/login" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-5">
-                                <i className="fas fa-sign-in-alt tm-nav-fa-icon"></i>
-                                <span>Login</span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/register" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-5">
-                                <i className="fas fa-sign-in-alt tm-nav-fa-icon"></i>
-                                <span>Register</span>
-                            </Link>
-                        </li> */}
                     </ul>
                 </nav>
             </div>

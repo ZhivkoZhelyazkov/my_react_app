@@ -1,11 +1,11 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import Product1 from './ProductCard';
+import { Link } from 'react-router-dom';
+// import ProductCard from './ProductCard/ProductCard';
 
-function Products() {
+function Projects() {
     return (
         <section id="tm-section-2" className="tm-section tm-section-carousel">
             <div>
-                <header className="mb-4"><h2 className="tm-text-shadow">Our Products</h2></header>
+                <header className="mb-4"><h2 className="tm-text-shadow">Projects</h2></header>
                 <div className="tm-img-container">
                     <div className="tm-img-slider">
                         {/* <Routes>
@@ -24,4 +24,4 @@ function Products() {
     );
 };
 
-export default Products;
+export default Projects;
