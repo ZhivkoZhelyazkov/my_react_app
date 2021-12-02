@@ -70,6 +70,7 @@
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  max-width: 100%;
 }
 .fh5co-project-item .fh5co-text {
   padding: 0px 10px 10px 20px;

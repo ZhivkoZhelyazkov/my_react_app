@@ -23,6 +23,15 @@ const Sidebar = ({
         </li>
     );
 
+    let logout = (
+        <li>
+            <Link to="/logout" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-5">
+                <i className="fas fa-sign-in-alt tm-nav-fa-icon"></i>
+                <span>Logout</span>
+            </Link>
+        </li>
+    );
+
     return (
         <div id="tmSideBar" className="col-xl-3 col-lg-4 col-md-12 col-sm-12 sidebar">
 
@@ -62,7 +71,7 @@ const Sidebar = ({
                             </Link>
                         </li>
 
-                        {isAuthenticated ? '' : [userNav, guestNav]}
+                        {isAuthenticated ? logout : [userNav, guestNav]}
 
                     </ul>
                 </nav>

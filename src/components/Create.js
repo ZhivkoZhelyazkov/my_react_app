@@ -1,22 +1,26 @@
 import { useNavigate } from 'react-router-dom';
-import * as authService from '../services/authService';
+import * as productService from '../services/productService';
 
-const Login = ({
-    onLogin
-}) => {
+function Create() {
 
     const navigate = useNavigate();
-    const onLoginHandler = (e) => {
+
+    const onProdCreate = (e) => {
         e.preventDefault();
-
-        let formData = new FormData(e.currentTarget);
-        let name = formData.get('contact_name');
-        let email = formData.get('contact_email');
-
-        authService.login(name);
-        onLogin(name);
-        navigate('/services');
         
+        let formData = new FormData(e.currentTarget);
+        let title = formData.get('title');
+        let description = formData.get('description');
+        let imageUrl = formData.get('imageUrl');
+
+        productService.create({
+            title,
+            description,
+            imageUrl
+        })
+            .then(response => {
+                navigate('/products');
+            });
     };
 
     return (
@@ -24,20 +28,23 @@ const Login = ({
             <div className="tm-bg-transparent-black tm-contact-box-pad">
                 <div className="row mb-4">
                     <div className="col-sm-12">
-                        <header><h2 className="tm-text-shadow">Login</h2></header>
+                        <header><h2 className="tm-text-shadow">Create Product</h2></header>
                     </div>
                 </div>
                 <div className="row tm-page-5-content">
                     <div className="col-md-6 col-sm-12 tm-contact-col">
                         <div className="contact_message">
-                            <form className="contact-form" onSubmit={onLoginHandler}>
+                            <form onSubmit={onProdCreate} method="POST" className="contact-form">
                                 <div className="form-group">
-                                    <input type="text" id="contact_name" name="contact_name" className="form-control" placeholder="Name" required />
+                                    <input type="text" id="contact_name" name="title" className="form-control" placeholder="Title" required />
                                 </div>
                                 <div className="form-group">
-                                    <input type="email" id="contact_email" name="contact_email" className="form-control" placeholder="Email" required />
+                                    <input type="text" id="contact_name" name="description" className="form-control" placeholder="Description" required />
                                 </div>
-                                <button type="submit" className="btn tm-btn-submit tm-btn ml-auto">Submit</button>
+                                <div className="form-group">
+                                    <input type="text" id="contact_email" name="imageUrl" className="form-control" placeholder="Image URL" required />
+                                </div>
+                                <button type="submit" className="btn tm-btn-submit tm-btn ml-auto">Create</button>
                             </form>
                         </div>
                     </div>
@@ -45,11 +52,6 @@ const Login = ({
                         <div className="tm-address-box">
                             <p>Aliquam interdum, nisl sedd faucibus tempor, massa velit laoreet ipsum, et faucibus sapien magna at enim. Suspendisse a dictum tortor.</p>
                             <p>Curabitur venenatis leo in augue convallis, vulputate sollicitudin ex maximus.</p>
-                            <address>
-                                120-240 Aliquam nec neque augue<br />
-                                Suspendisse tincidunt nunc,<br />
-                                vitae sagis justo 11000
-                            </address>
                         </div>
                     </div>
                 </div>
@@ -58,4 +60,4 @@ const Login = ({
     );
 };
 
-export default Login;
+export default Create;

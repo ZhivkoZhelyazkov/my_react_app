@@ -14,7 +14,11 @@ import Products from './components/Products';
 import ContactUs from './components/ContactUs';
 import Register from './components/Register';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import Footer from './components/Footer';
+
+import Create from './components/Create';
+import Details from './components/Details';
 // import ErrorPage from './components/ErrorPage';
 
 function App() {
@@ -31,6 +35,12 @@ function App() {
         setUserInfo({
             isAuthenticated: true,
             user: username,
+        });
+    };
+    const onLogout = (username) => {
+        setUserInfo({
+            isAuthenticated: false,
+            user: '',
         });
     };
 
@@ -51,7 +61,10 @@ function App() {
                             <Route path="/projects" element={<Projects />} />
                             <Route path="/contacts" element={<ContactUs />} />
                             <Route path="/login" element={<Login onLogin={onLogin} />} />
+                            <Route path="/logout" element={<Logout onLogout={onLogout} />} />
                             <Route path="/register" element={<Register />} />
+                            <Route path="/create" element={<Create />} />
+                            <Route path="/details/:productId" element={<Details />} />
                         </Routes>
 
                     </div>
