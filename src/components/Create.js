@@ -1,8 +1,12 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import * as productService from '../services/productService';
+import { AuthContext } from '../contexts/AuthContext';
+
 
 function Create() {
-
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const onProdCreate = (e) => {
@@ -17,10 +21,10 @@ function Create() {
             title,
             description,
             imageUrl
-        })
+        }, user.accessToken)
             .then(response => {
                 navigate('/products');
-            });
+            });    
     };
 
     return (

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import * as productService from '../services/productService';
 
+
 const Products = () => {
     const [products, setProducts] = useState([]);
 
@@ -14,6 +15,7 @@ const Products = () => {
             });
     }, []);
 
+
     return (
         <div className="gtco-section border-bottom">
             <div className="gtco-container">
@@ -22,7 +24,10 @@ const Products = () => {
                 </div>
                 <div className="row">
 
-                    {products.map(x => <ProductCard key={x._id} product={x} />)}
+                    {products.length > 0
+                        ? <>{products.map(x => <ProductCard key={x._id} product={x} />)}</>
+                        : <h2 className="col-xl-12 tm-text-shadow">No Products in the database!</h2>
+                    }
 
                 </div>
                 <Link id="create_btn" to="/create" className="btn tm-btn tm-font-big" data-nav-link="#tmNavLink2">Create Product</Link>

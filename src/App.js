@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import * as authService from './services/authService';
-
-
 import { Routes, Route } from 'react-router-dom';
+
+import { AuthContext } from './contexts/AuthContext';
+import useLocalStorage from './hooks/useLocalStorage';
 
 import Loader from './components/Loader';
 import Header from './components/Header';
@@ -19,63 +19,61 @@ import Footer from './components/Footer';
 
 import Create from './components/Create';
 import Details from './components/Details';
-// import ErrorPage from './components/ErrorPage';
+import ErrorPage from './components/ErrorPage';
+
+
+const initialAuthState = {
+    _id: '',
+    email: '',
+    accessToken: ''
+};
 
 function App() {
+    // const [user, setUser] = useState(initialAuthState);
+    const [user, setUser] = useLocalStorage('user', initialAuthState);
 
-    const [userInfo, setUserInfo] = useState({ isAuthenticated: false, username: '' });
-    useEffect(() => {
-        let user = authService.getUser();
-        setUserInfo({
-            isAuthenticated: Boolean(user),
-            user: user
-        });
-    }, []);
-    const onLogin = (username) => {
-        setUserInfo({
-            isAuthenticated: true,
-            user: username,
-        });
+    const login = (authData) => {
+        setUser(authData);
     };
-    const onLogout = (username) => {
-        setUserInfo({
-            isAuthenticated: false,
-            user: '',
-        });
+
+    const logout = () => {
+        setUser(initialAuthState);
     };
 
     return (
-        <div>
-            <Loader />
-            <div className="container-fluid tm-main">
-                <div className="row tm-main-row">
-                    <Header {...userInfo} />
-                    <Sidebar {...userInfo} />
+        <AuthContext.Provider value={{user, login, logout}}>
+            <div>
+                <Loader />
+                <div className="container-fluid tm-main">
+                    <div className="row tm-main-row">
+                        <Header /> 
+                        <Sidebar />
 
-                    <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 tm-content">
+                        <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 tm-content">
 
-                        <Routes>
-                            <Route path="/" element={<Intro />} />
-                            <Route path="/services" element={<Services />} />
-                            <Route path="/products" element={<Products />} />
-                            <Route path="/projects" element={<Projects />} />
-                            <Route path="/contacts" element={<ContactUs />} />
-                            <Route path="/login" element={<Login onLogin={onLogin} />} />
-                            <Route path="/logout" element={<Logout onLogout={onLogout} />} />
-                            <Route path="/register" element={<Register />} />
-                            <Route path="/create" element={<Create />} />
-                            <Route path="/details/:productId" element={<Details />} />
-                        </Routes>
+                            <Routes>
+                                <Route path="/" element={<Intro />} />
+                                <Route path="/services" element={<Services />} />
+                                <Route path="/products" element={<Products />} />
+                                <Route path="/projects" element={<Projects />} />
+                                <Route path="/contacts" element={<ContactUs />} />
+                                <Route path="/login" element={<Login />} />
+                                <Route path="/logout" element={<Logout />} />
+                                <Route path="/register" element={<Register />} />
+                                <Route path="/create" element={<Create />} />
+                                <Route path="/details/:productId" element={<Details />} />
+                            </Routes>
 
+                        </div>
+                        <Footer />
                     </div>
-                    <Footer />
                 </div>
+                <div id="preload-01"></div>
+                <div id="preload-02"></div>
+                <div id="preload-03"></div>
+                <div id="preload-04"></div>
             </div>
-            <div id="preload-01"></div>
-            <div id="preload-02"></div>
-            <div id="preload-03"></div>
-            <div id="preload-04"></div>
-        </div>
+        </AuthContext.Provider>
     );
 }
 

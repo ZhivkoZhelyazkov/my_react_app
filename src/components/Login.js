@@ -1,22 +1,29 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import * as authService from '../services/authService';
+import { AuthContext } from '../contexts/AuthContext';
 
-const Login = ({
-    onLogin
-}) => {
 
+const Login = () => {
+    const { login } = useContext(AuthContext);
     const navigate = useNavigate();
+
     const onLoginHandler = (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
-        let name = formData.get('contact_name');
-        let email = formData.get('contact_email');
+        let email = formData.get('email');
+        let password = formData.get('password');
 
-        authService.login(name);
-        onLogin(name);
-        navigate('/services');
-        
+        authService.login(email, password)
+            .then((authData) => {
+                login(authData);
+                navigate('/services');
+            })
+            .catch(err => {
+                console.log(err);
+            });
     };
 
     return (
@@ -32,10 +39,10 @@ const Login = ({
                         <div className="contact_message">
                             <form className="contact-form" onSubmit={onLoginHandler}>
                                 <div className="form-group">
-                                    <input type="text" id="contact_name" name="contact_name" className="form-control" placeholder="Name" required />
+                                    <input type="email" id="contact_email" name="email" className="form-control" placeholder="Email" required />
                                 </div>
                                 <div className="form-group">
-                                    <input type="email" id="contact_email" name="contact_email" className="form-control" placeholder="Email" required />
+                                    <input type="password" id="contact_password" name="password" className="form-control" placeholder="Password" required />
                                 </div>
                                 <button type="submit" className="btn tm-btn-submit tm-btn ml-auto">Submit</button>
                             </form>

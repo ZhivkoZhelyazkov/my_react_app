@@ -1,18 +1,40 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+
 import * as productService from '../services/productService';
+import { AuthContext } from '../contexts/AuthContext';
 
 
 function Details() {
-
+    const navigate = useNavigate();
+    const { user } = useContext(AuthContext);
     const [product, setProduct] = useState({});
     const params = useParams();
     const productId = params.productId;
 
-    useEffect(async () => {
-        let productResult = await productService.getOne(productId);
-        setProduct(productResult);
-    }, []);
+    useEffect(() => {
+        productService.getOne(productId)
+            .then(productResult => {
+                setProduct(productResult);
+            });
+    }, [productId]);
+
+    const deleteHandler = (e) => {
+        e.preventDefault();
+        productService.destroy(productId, user.accessToken)
+            .then(() => {
+                navigate('/products');
+            });
+    };
+
+    const ownerButtons = (
+        <>
+            <Link id="edit_btn" to="#" className="btn tm-btn-submit tm-btn ml-auto">Edit</Link>
+            <a id="delete_btn" href="#" className="btn tm-btn-submit tm-btn ml-auto" onClick={deleteHandler}>Delete</a>
+        </>
+    );
+
+    const userButtons = (<></>);
 
     return (
         <section id="tm-section-5" className="tm-section">
@@ -28,7 +50,7 @@ function Details() {
                         <div className="contact_message">
                             <section className="contact-form">
                                 <div className="form-group">
-                                    <p id="contact_img" name="image" className="form-control"><img src={product.imageUrl} /></p>
+                                    <p id="contact_img" name="image" className="form-control"><img src={product.imageUrl} alt="Img" /></p>
                                 </div>
                             </section>
                         </div>
@@ -50,8 +72,13 @@ function Details() {
                     </div>
                 </div>
 
-                <button id="edit_btn" type="submit" className="btn tm-btn-submit tm-btn ml-auto">Edit</button>
-                <button id="delete_btn" type="submit" className="btn tm-btn-submit tm-btn ml-auto">Delete</button>
+                {user._id === product._ownerId ? ownerButtons : userButtons}
+
+                {/* {user._id && (user._id === product._ownerId
+                    ? ownerButtons
+                    : userButtons
+                )} */}
+
             </div>
         </section>
     );

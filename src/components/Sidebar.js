@@ -1,13 +1,14 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../contexts/AuthContext';
 
-const Sidebar = ({
-    isAuthenticated,
-    username,
-}) => {
+
+const Sidebar = () => {
+    const { user } = useContext(AuthContext);
 
     let userNav = (
         <li>
-            <Link to="/login" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-5">
+            <Link to="/login" id="tmNavLink6" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-6">
                 <i className="fas fa-sign-in-alt tm-nav-fa-icon"></i>
                 <span>Login</span>
             </Link>
@@ -16,7 +17,7 @@ const Sidebar = ({
 
     let guestNav = (
         <li>
-            <Link to="/register" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-5">
+            <Link to="/register" id="tmNavLink7" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-7">
                 <i className="fas fa-sign-in-alt tm-nav-fa-icon"></i>
                 <span>Register</span>
             </Link>
@@ -25,7 +26,7 @@ const Sidebar = ({
 
     let logout = (
         <li>
-            <Link to="/logout" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-5">
+            <Link to="/logout" id="tmNavLink8" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-8">
                 <i className="fas fa-sign-in-alt tm-nav-fa-icon"></i>
                 <span>Logout</span>
             </Link>
@@ -41,19 +42,19 @@ const Sidebar = ({
                 <nav id="tmMainNav" className="tm-main-nav">
                     <ul>
                         <li>
-                            <Link to="/" id="tmNavLink1" className="scrolly active" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-1">
+                            <Link to="/" id="tmNavLink1" className="scrolly active" data-bg-img="constructive_bg_02.jpg" data-page="#tm-section-1">
                                 <i className="fas fa-home tm-nav-fa-icon"></i>
-                                <span>Introduction</span>
+                                <span>Introduction</span>                                    
                             </Link>
                         </li>
                         <li>
-                            <Link to="/services" className="scrolly" data-bg-img="constructive_bg_03.jpg" data-page="#tm-section-3">
+                            <Link to="/services" id="tmNavLink3" className="scrolly" data-bg-img="constructive_bg_03.jpg" data-page="#tm-section-3">
                                 <i className="fas fa-users tm-nav-fa-icon"></i>
                                 <span>Services</span>
                             </Link>
                         </li>
                         <li>
-                            <Link to="/products" className="scrolly" data-bg-img="constructive_bg_03.jpg" data-page="#tm-section-1">
+                            <Link to="/products" id="tmNavLink5" className="scrolly" data-bg-img="constructive_bg_03.jpg" data-page="#tm-section-5">
                                 <i className="fas fa-users tm-nav-fa-icon"></i>
                                 <span>Products</span>
                             </Link>
@@ -65,13 +66,13 @@ const Sidebar = ({
                             </Link>
                         </li>
                         <li>
-                            <Link to="/contacts" className="scrolly" data-bg-img="constructive_bg_04.jpg" data-page="#tm-section-4">
+                            <Link to="/contacts" id="tmNavLink4" className="scrolly" data-bg-img="constructive_bg_04.jpg" data-page="#tm-section-4">
                                 <i className="fas fa-comments tm-nav-fa-icon"></i>
                                 <span>Contact Us</span>
                             </Link>
                         </li>
 
-                        {isAuthenticated ? logout : [userNav, guestNav]}
+                        {user.email ? logout : [userNav, guestNav]}
 
                     </ul>
                 </nav>
