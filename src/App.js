@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { AuthContext } from './contexts/AuthContext';
@@ -19,7 +19,7 @@ import Footer from './components/Footer';
 
 import Create from './components/Create';
 import Details from './components/Details';
-import ErrorPage from './components/ErrorPage';
+// import ErrorPage from './components/ErrorPage';
 
 
 const initialAuthState = {
@@ -29,6 +29,7 @@ const initialAuthState = {
 };
 
 function App() {
+
     // const [user, setUser] = useState(initialAuthState);
     const [user, setUser] = useLocalStorage('user', initialAuthState);
 

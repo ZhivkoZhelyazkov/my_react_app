@@ -12,6 +12,9 @@ const Products = () => {
         productService.getAll()
             .then(result => {
                 setProducts(result);
+            })
+            .catch(err => {
+                console.log(err);
             });
     }, []);
 

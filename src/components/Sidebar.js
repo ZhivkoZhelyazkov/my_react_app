@@ -42,7 +42,7 @@ const Sidebar = () => {
                 <nav id="tmMainNav" className="tm-main-nav">
                     <ul>
                         <li>
-                            <Link to="/" id="tmNavLink1" className="scrolly active" data-bg-img="constructive_bg_02.jpg" data-page="#tm-section-1">
+                            <Link to="/" id="tmNavLink1" className="scrolly active" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-1">
                                 <i className="fas fa-home tm-nav-fa-icon"></i>
                                 <span>Introduction</span>                                    
                             </Link>

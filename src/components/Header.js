@@ -6,6 +6,7 @@ import { AuthContext } from '../contexts/AuthContext';
 let logger = <Link to="/login">Please Login</Link>;
 
 const Header = () => {
+    
     const { user } = useContext(AuthContext);
 
     return (

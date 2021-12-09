@@ -1,13 +1,11 @@
-// const baseUrl = 'http://my-softuni-custom-server.herokuapp.com/data';
-const baseUrl = 'http://localhost:3030/data';
+import { request } from './requester';
 
 
-export const getAll = async () => {
-    let response = await fetch(`${baseUrl}/products`);
-    let products = await response.json();
-    let result = Object.values(products);
-    return result;
-};
+const baseUrl = 'http://my-softuni-custom-server.herokuapp.com/data';
+// const baseUrl = 'http://localhost:3030/data';
+
+
+export const getAll = () => request(`${baseUrl}/products`);
 
 
 export const getOne = (productId) => {

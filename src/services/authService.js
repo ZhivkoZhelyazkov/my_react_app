@@ -1,5 +1,5 @@
-// const baseUrl = 'http://my-softuni-custom-server.herokuapp.com/users';
-const baseUrl = 'http://localhost:3030/users';
+const baseUrl = 'http://my-softuni-custom-server.herokuapp.com/users';
+// const baseUrl = 'http://localhost:3030/users';
 
 
 export const register = (email, password) => {
