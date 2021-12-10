@@ -6,18 +6,17 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
-    <link rel="stylesheet" href="/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/magnific-popup.css" /> <!-- type="text/css" -->
-    <link rel="stylesheet" href="/slick/slick.css" /> <!-- type="text/css" -->
-    <link rel="stylesheet" href="/slick/slick-theme.css" /> <!-- type="text/css" -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" />
+    <link rel="stylesheet" href="/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/magnific-popup.css" /> 
+    <link rel="stylesheet" href="/slick/slick.css" /> 
+    <link rel="stylesheet" href="/slick/slick-theme.css" />
 
-    <link rel="stylesheet" href="/css/tooplate-style.css">
-    <link rel="stylesheet" href="/css/fh5co.css">
-
+    <link rel="stylesheet" href="/css/tooplate-style.css" />
+    <link rel="stylesheet" href="/css/fh5co.css" />
 
     <script>
         var renderPage = true;
@@ -35,23 +34,13 @@
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-    <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.backstretch.min.js"></script>
-    <script type="text/javascript" src="/slick/slick.min.js"></script> <!-- Slick Carousel -->
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/jquery.backstretch.min.js"></script>
+    <script src="/slick/slick.min.js"></script>
 
     <script>
-
         var sidebarVisible = false;
         var currentPageID = "#tm-section-1";
 
@@ -202,7 +191,7 @@
                 // Set up background first page
                 var bgImg = $("#tmNavLink1").data("bgImg");
                 
-                $.backstretch("img/" + bgImg, { fade: 500 });
+                $.backstretch("/img/" + bgImg, { fade: 500 });
 
                 // Setup Carousel, Nav, and Nav Toggle
                 setupCarousel();
@@ -217,7 +206,6 @@
                 });
             }
         });
-
     </script>
 </body>
 

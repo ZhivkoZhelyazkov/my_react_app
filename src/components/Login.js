@@ -1,12 +1,11 @@
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import * as authService from '../services/authService';
-import { AuthContext } from '../contexts/AuthContext';
+import { useAuthContext } from '../contexts/AuthContext';
 
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const { login } = useAuthContext();
     const navigate = useNavigate();
 
     const onLoginHandler = (e) => {
@@ -23,6 +22,7 @@ const Login = () => {
             })
             .catch(err => {
                 console.log(err);
+                navigate('/register');
             });
     };
 

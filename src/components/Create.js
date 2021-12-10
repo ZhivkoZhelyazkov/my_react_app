@@ -1,30 +1,31 @@
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import * as productService from '../services/productService';
-import { AuthContext } from '../contexts/AuthContext';
+import { useAuthContext } from '../contexts/AuthContext';
 
 
 function Create() {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuthContext();
     const navigate = useNavigate();
 
     const onProdCreate = (e) => {
         e.preventDefault();
-        
+
         let formData = new FormData(e.currentTarget);
         let title = formData.get('title');
         let description = formData.get('description');
         let imageUrl = formData.get('imageUrl');
+        let type = formData.get('type');
 
         productService.create({
             title,
             description,
-            imageUrl
+            imageUrl,
+            type
         }, user.accessToken)
             .then(response => {
                 navigate('/products');
-            });    
+            });
     };
 
     return (
@@ -40,14 +41,26 @@ function Create() {
                         <div className="contact_message">
                             <form onSubmit={onProdCreate} method="POST" className="contact-form">
                                 <div className="form-group">
-                                    <input type="text" id="contact_name" name="title" className="form-control" placeholder="Title" required />
+                                    <input type="text" id="create_title" name="title" className="form-control" placeholder="Title" required />
                                 </div>
+
                                 <div className="form-group">
-                                    <input type="text" id="contact_name" name="description" className="form-control" placeholder="Description" required />
+                                    <input type="text" id="create_description" name="description" className="form-control" placeholder="Description" required />
                                 </div>
+
                                 <div className="form-group">
-                                    <input type="text" id="contact_email" name="imageUrl" className="form-control" placeholder="Image URL" required />
+                                    <input type="text" id="create_imageUrl" name="imageUrl" className="form-control" placeholder="Image URL" required />
                                 </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="type">Type</label>
+                                    <select id="select_type" className="form-control" name="type">
+                                        <option className="form-control" value=""></option>
+                                        <option className="form-control" value="Concrete">Concrete</option>
+                                        <option className="form-control" value="Rainforcement">Rainforcement</option>
+                                    </select>
+                                </div>
+                                
                                 <button type="submit" className="btn tm-btn-submit tm-btn ml-auto">Create</button>
                             </form>
                         </div>

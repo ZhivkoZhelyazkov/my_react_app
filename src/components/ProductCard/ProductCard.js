@@ -15,6 +15,7 @@ const ProductCard = ({
                 <div className="fh5co-text">
                     <h2>{product.title}</h2>
                     <p>{product.description}</p>
+                    <p>Type: {product.type}</p>
                     <Link to={`/details/${product._id}`} className="btn tm-btn tm-font-big" data-nav-link="#tmNavLink2">Details</Link>
                 </div>
             </a>

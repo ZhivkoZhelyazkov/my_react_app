@@ -1,10 +1,9 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext';
+import { useAuthContext } from '../contexts/AuthContext';
 
 
 const Sidebar = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuthContext();
 
     let userNav = (
         <li>
