@@ -36,7 +36,7 @@ function Details() {
     const ownerButtons = (
         <>
             <Link id="edit_btn" to={`/edit/${product._id}`} className="btn tm-btn-submit tm-btn ml-auto">Edit</Link>
-            <a id="delete_btn" href="#" className="btn tm-btn-submit tm-btn ml-auto" onClick={deleteClickHandler}>Delete</a>
+            <button id="delete_btn" className="btn tm-btn-submit tm-btn ml-auto" onClick={deleteClickHandler}>Delete</button>
         </>
     );
 

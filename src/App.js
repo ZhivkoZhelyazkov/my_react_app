@@ -16,7 +16,7 @@ import Logout from './components/Logout';
 import Footer from './components/Footer';
 import Create from './components/Create';
 import Details from './components/Details';
-import Edit from './components/Edit';
+import Edit from './components/Edit/Edit';
 // import ErrorPage from './components/ErrorPage';
 
 function App() {
