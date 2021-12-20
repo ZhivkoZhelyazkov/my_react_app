@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
-import ProductCard from './ProductCard';
-import * as productService from '../services/productService';
+import ProductCard from '../ProductCard';
+import * as productService from '../../services/productService';
 
 
 const Products = () => {

@@ -17,9 +17,9 @@ import Footer from './components/Footer';
 import Create from './components/Create';
 import Details from './components/Details';
 import Edit from './components/Edit';
+import ErrorPage from './components/ErrorPage';
 
 import PrivateRoute from './Common/PrivateRoute';
-// import ErrorPage from './components/ErrorPage';
 
 
 function App() {
@@ -43,6 +43,7 @@ function App() {
                                 <Route path="/register" element={<Register />} />
                                 <Route path="/edit/:productId" element={<Edit />} />
                                 <Route path="/details/:productId" element={<Details />} />
+                                <Route path="*" element={<ErrorPage />} />
 
                                 <Route element={<PrivateRoute />}>
                                     <Route path="/create" element={<Create />} />

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 
 const Sidebar = () => {
@@ -17,7 +17,7 @@ const Sidebar = () => {
     let guestNav = (
         <li>
             <Link to="/register" id="tmNavLink7" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-7">
-                <i className="fas fa-sign-in-alt tm-nav-fa-icon"></i>
+                <i className="fas fa-user-plus tm-nav-fa-icon"></i>
                 <span>Register</span>
             </Link>
         </li>
@@ -26,7 +26,7 @@ const Sidebar = () => {
     let logout = (
         <li>
             <Link to="/logout" id="tmNavLink8" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-8">
-                <i className="fas fa-sign-in-alt tm-nav-fa-icon"></i>
+                <i className="fas fa-sign-out-alt tm-nav-fa-icon"></i>
                 <span>Logout</span>
             </Link>
         </li>
@@ -48,14 +48,14 @@ const Sidebar = () => {
                         </li>
                         <li>
                             <Link to="/services" id="tmNavLink3" className="scrolly" data-bg-img="constructive_bg_03.jpg" data-page="#tm-section-3">
-                                <i className="fas fa-users tm-nav-fa-icon"></i>
+                                <i className="fas fa-cogs tm-nav-fa-icon"></i>
                                 <span>Services</span>
                             </Link>
                         </li>
                         <li>
                             <Link to="/products" id="tmNavLink5" className="scrolly" data-bg-img="constructive_bg_03.jpg" data-page="#tm-section-5">
-                                <i className="fas fa-users tm-nav-fa-icon"></i>
-                                <span>Products</span>
+                                <i className="fas fa-balance-scale tm-nav-fa-icon"></i>
+                                <span>NDT Methods</span>
                             </Link>
                         </li>
                         <li>

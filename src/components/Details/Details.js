@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 
-import * as productService from '../services/productService';
-import { useAuthContext } from '../contexts/AuthContext';
-import useProductState from '../hooks/useProductState';
-import ConfirmDialog from '../Common/ConfirmDialog';
+import * as productService from '../../services/productService';
+import { useAuthContext } from '../../contexts/AuthContext';
+import useProductState from '../../hooks/useProductState';
+import ConfirmDialog from '../../Common/ConfirmDialog';
 
 
 function Details() {

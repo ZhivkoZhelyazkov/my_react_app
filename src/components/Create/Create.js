@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
-import * as productService from '../services/productService';
-import { useAuthContext } from '../contexts/AuthContext';
+import * as productService from '../../services/productService';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 
 function Create() {

@@ -559,9 +559,6 @@ footer a { color: white; }
 
 
 
-
-
-
 .header-link {
     position: absolute;
     top: 20px;
@@ -634,4 +631,8 @@ select.form-control:not([size]):not([multiple]) {
 .fh5co-text a {
     color: black;
     border-color: black;
+}
+
+g {
+    fill: #ffffff;
 }
