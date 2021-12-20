@@ -3,7 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 const SaveDialog = ({
     show,
     onClose,
-    onSave
+    onConfirm
 }) => {
     return (
 
@@ -18,7 +18,7 @@ const SaveDialog = ({
 
             <Modal.Footer>
                 <Button variant="secondary" onClick={onClose}>Close</Button>
-                <Button variant="primary" onClick={onSave}>Confirm</Button>
+                <Button variant="primary" onClick={onConfirm}>Confirm</Button>
             </Modal.Footer>
         </Modal>
     );

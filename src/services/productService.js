@@ -1,11 +1,11 @@
-import { request } from './requester';
+import * as request from './requester';
 
 
 const baseUrl = 'http://my-softuni-custom-server.herokuapp.com/data';
 // const baseUrl = 'http://localhost:3030/data';
 
 
-export const getAll = () => request(`${baseUrl}/products`);
+export const getAll = () => request.get(`${baseUrl}/products`);
 
 
 export const getOne = (productId) => {
@@ -26,6 +26,9 @@ export const create = async (productData, token) => {
     let result = await response.json();
     return result;
 };
+
+
+export const update = (productId, productData) => request.put(`${baseUrl}/products/${productId}`, productData);
 
 
 export const destroy = (productId, token) => {

@@ -11,7 +11,7 @@ function Details() {
     const navigate = useNavigate();
     const { user } = useAuthContext();
     const { productId } = useParams();
-    const [product, setProduct] = useProductState(productId);
+    const [product] = useProductState(productId);
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
 

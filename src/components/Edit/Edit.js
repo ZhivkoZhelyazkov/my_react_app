@@ -1,50 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import useProductState from '../../hooks/useProductState';
-
 import * as productService from '../../services/productService';
-import { useAuthContext } from '../../contexts/AuthContext';
-import SaveDialog from '../../Common/SaveDialog';
+import useProductState from '../../hooks/useProductState';
 
 
 const types = [
+    { value: 'Coating', text: 'Coating' },
     { value: 'Concrete', text: 'Concrete' },
-    { value: 'Rainforcement', text: 'Rainforcement' }
+    { value: 'Rainforcement', text: 'Rainforcement' },
 ];
 
 
-function Edit() {
+const Edit = () => {
+    const navigate = useNavigate();
     const { productId } = useParams();
     const [product, setProduct] = useProductState(productId);
     const [errors, setErrors] = useState({ title: false });
+    
 
     const productEditSubmitHandler = (e) => {
         e.preventDefault();
-
-        console.log('submit');
+        let productData = Object.fromEntries(new FormData(e.currentTarget));
+        productService.update(productId, productData)
+            .then(response => {
+                navigate('/products');
+            });
     };
 
-
-    // const navigate = useNavigate();
-    // const { user } = useAuthContext();
-    const [showSaveDialog, setShowSaveDialog] = useState(false);
-
-    const saveHandler = (e) => {
-        e.preventDefault();
-        // productService.destroy(productId, user.accessToken)
-        //     .then(() => {
-        //         setShowDeleteDialog(false);
-        //         navigate('/products');
-        //     })
-        //     .finally(() => {
-        //         setShowDeleteDialog(false);
-        //     });
-    };
-
-    const saveClickHandler = (e) => {
-        e.preventDefault();
-        setShowSaveDialog(true);
-    };
 
     const changeTypeHandler = (e) => {
         e.preventDefault();
@@ -64,8 +46,6 @@ function Edit() {
 
 
     return (
-        <>
-            <SaveDialog show={showSaveDialog} onClose={() => setShowSaveDialog(false)} onConfirm={saveHandler} />
             <section id="tm-section-5" className="tm-section">
                 <div className="tm-bg-transparent-black tm-contact-box-pad">
                     <div className="row mb-4">
@@ -85,7 +65,7 @@ function Edit() {
                             </div>
                         </div>
 
-                        <form className="edit-form form-group col-sm-12" nethod="POST" onSubmit={productEditSubmitHandler}>
+                        <form className="edit-form form-group col-sm-12" method="POST" onSubmit={productEditSubmitHandler}>
                             <div className="form-group">
                                 <input
                                     type="text"
@@ -98,7 +78,7 @@ function Edit() {
                                 />
                             </div>
 
-                            <div class="alert alert-primary" role="alert" style={{ display: errors.title ? 'inline' : 'none' }}>{errors.title}</div>
+                            <div className="alert alert-primary" role="alert" style={{ display: errors.title ? 'inline' : 'none' }}>{errors.title}</div>
 
                             <div className="form-group">
                                 <input
@@ -127,14 +107,14 @@ function Edit() {
                                 className="form-control"
                                 defaultValue={product.imageUrl}
                             />
+
+                            <Link id="cancel_btn" to={`/details/${product._id}`} className="btn tm-btn-submit tm-btn ml-auto">Cancel</Link>
+                            <input id="save_btn" type="submit" className="btn tm-btn-submit tm-btn ml-auto" value="Save" />
                         </form>
                     </div>
 
-                    <Link id="cancel_btn" to={`/details/${product._id}`} className="btn tm-btn-submit tm-btn ml-auto">Cancel</Link>
-                    <button id="save_btn" className="btn tm-btn-submit tm-btn ml-auto" onClick={saveClickHandler}>Save</button>
                 </div>
             </section>
-        </>
     );
 };
 

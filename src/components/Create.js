@@ -56,6 +56,7 @@ function Create() {
                                     <label htmlFor="type">Type</label>
                                     <select id="select_type" className="form-control" name="type">
                                         <option className="form-control" value=""></option>
+                                        <option className="form-control" value="Coating">Coating</option>
                                         <option className="form-control" value="Concrete">Concrete</option>
                                         <option className="form-control" value="Rainforcement">Rainforcement</option>
                                     </select>

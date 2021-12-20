@@ -16,8 +16,11 @@ import Logout from './components/Logout';
 import Footer from './components/Footer';
 import Create from './components/Create';
 import Details from './components/Details';
-import Edit from './components/Edit/Edit';
+import Edit from './components/Edit';
+
+import PrivateRoute from './Common/PrivateRoute';
 // import ErrorPage from './components/ErrorPage';
+
 
 function App() {
     return (
@@ -38,9 +41,12 @@ function App() {
                                 <Route path="/login" element={<Login />} />
                                 <Route path="/logout" element={<Logout />} />
                                 <Route path="/register" element={<Register />} />
-                                <Route path="/create" element={<Create />} />
                                 <Route path="/edit/:productId" element={<Edit />} />
                                 <Route path="/details/:productId" element={<Details />} />
+
+                                <Route element={<PrivateRoute />}>
+                                    <Route path="/create" element={<Create />} />
+                                </Route>
                             </Routes>
                         </div>
                         <Footer />

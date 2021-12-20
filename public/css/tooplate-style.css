@@ -597,11 +597,19 @@ header a { color: white; }
     padding: 15px 43px;
     width: 12rem;
     margin-bottom: 15px;
+}
+
+#edit_btn,
+#delete_btn {
     margin-right: 15px;
 }
 
 #create_btn {
     margin-left: 15px;
+}
+
+#edit_imageUrl {
+    margin-bottom: 1rem;
 }
 
 #select_type {
