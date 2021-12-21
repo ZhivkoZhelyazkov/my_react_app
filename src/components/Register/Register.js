@@ -46,13 +46,7 @@ function Register() {
                     </div>
                     <div className="col-md-6 col-sm-12 tm-contact-col">
                         <div className="tm-address-box">
-                            <p>Aliquam interdum, nisl sedd faucibus tempor, massa velit laoreet ipsum, et faucibus sapien magna at enim. Suspendisse a dictum tortor.</p>
-                            <p>Curabitur venenatis leo in augue convallis, vulputate sollicitudin ex maximus.</p>
-                            <address>
-                                120-240 Aliquam nec neque augue<br />
-                                Suspendisse tincidunt nunc,<br />
-                                vitae sagis justo 11000
-                            </address>
+                            <h5>The personal data collected when you register on our Website will be stored as long as your account remains active and will be deleted immediately after the closure of your account.</h5>
                         </div>
                     </div>
                 </div>

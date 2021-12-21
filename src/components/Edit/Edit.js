@@ -50,7 +50,7 @@ const Edit = () => {
                 <div className="tm-bg-transparent-black tm-contact-box-pad">
                     <div className="row mb-4">
                         <div className="col-sm-12">
-                            <header><h2 className="tm-text-shadow">Edit the Product</h2></header>
+                            <header><h2 className="tm-text-shadow">Edit the NDT Method</h2></header>
                         </div>
                     </div>
 

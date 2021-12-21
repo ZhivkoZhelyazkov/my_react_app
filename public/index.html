@@ -41,8 +41,8 @@
     <script src="/slick/slick.min.js"></script>
 
     <script>
-        var sidebarVisible = false;
-        var currentPageID = "#tm-section-1";
+        let sidebarVisible = false;
+        let currentPageID = "#tm-section-1";
 
         // Setup Carousel
         function setupCarousel() {
@@ -50,10 +50,10 @@
             // If current page isn't Carousel page, don't do anything.
             if ($('#tm-section-2').css('display') == "none") {
             }
-            else {	// If current page is Carousel page, set up the Carousel.
-
-                var slider = $('.tm-img-slider');
-                var windowWidth = $(window).width();
+            else {
+                // If current page is Carousel page, set up the Carousel.
+                let slider = $('.tm-img-slider');
+                let windowWidth = $(window).width();
 
                 if (slider.hasClass('slick-initialized')) {
                     slider.slick('destroy');
@@ -81,13 +81,13 @@
                         dots: true,
                         infinite: false,
                         slidesToShow: 3,
-                        slidesToScroll: 2
+                        slidesToScroll: 1
                     });
                 }
 
                 // Init Magnific Popup
                 $('.tm-img-slider').magnificPopup({
-                    delegate: 'Link', // child items selector, by clicking on it popup will open
+                    delegate: 'a', // child items selector, by clicking on it popup will open
                     type: 'image',
                     gallery: { enabled: true }
                     // other options
@@ -101,7 +101,7 @@
             $(".tm-main-nav Link").click(function (e) {
                 e.preventDefault();
 
-                var currentNavItem = $(this);
+                let currentNavItem = $(this);
                 changePage(currentNavItem);
                 
                 setupCarousel();

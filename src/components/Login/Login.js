@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 import * as authService from '../../services/authService';
 import { useAuthContext } from '../../contexts/AuthContext';
 
+
+let regger = <Link to="/register"><u>Register</u></Link>;
 
 const Login = () => {
     const { login } = useAuthContext();
@@ -50,13 +53,7 @@ const Login = () => {
                     </div>
                     <div className="col-md-6 col-sm-12 tm-contact-col">
                         <div className="tm-address-box">
-                            <p>Aliquam interdum, nisl sedd faucibus tempor, massa velit laoreet ipsum, et faucibus sapien magna at enim. Suspendisse a dictum tortor.</p>
-                            <p>Curabitur venenatis leo in augue convallis, vulputate sollicitudin ex maximus.</p>
-                            <address>
-                                120-240 Aliquam nec neque augue<br />
-                                Suspendisse tincidunt nunc,<br />
-                                vitae sagis justo 11000
-                            </address>
+                            <h5>Please Login to the site using your {regger} credentials.</h5>
                         </div>
                     </div>
                 </div>

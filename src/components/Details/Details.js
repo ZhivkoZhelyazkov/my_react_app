@@ -49,7 +49,7 @@ function Details() {
                 <div className="tm-bg-transparent-black tm-contact-box-pad">
                     <div className="row mb-4">
                         <div className="col-sm-12">
-                            <header><h2 className="tm-text-shadow">Product Details</h2></header>
+                            <header><h2 className="tm-text-shadow">NDT Method Details</h2></header>
                         </div>
                     </div>
 

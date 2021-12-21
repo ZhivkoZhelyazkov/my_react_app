@@ -20,7 +20,7 @@ export const create = async (productData, token) => {
         headers: {
             'content-type': 'application/json',
             'X-Authorization': token
-        },
+        },       
         body: JSON.stringify(productData)
     });
     let result = await response.json();

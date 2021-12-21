@@ -6,7 +6,7 @@ const Sidebar = () => {
     const { user } = useAuthContext();
 
     let userNav = (
-        <li>
+        <li key={'login'}>
             <Link to="/login" id="tmNavLink6" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-6">
                 <i className="fas fa-sign-in-alt tm-nav-fa-icon"></i>
                 <span>Login</span>
@@ -15,7 +15,7 @@ const Sidebar = () => {
     );
 
     let guestNav = (
-        <li>
+        <li key={'register'}>
             <Link to="/register" id="tmNavLink7" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-7">
                 <i className="fas fa-user-plus tm-nav-fa-icon"></i>
                 <span>Register</span>
@@ -24,7 +24,7 @@ const Sidebar = () => {
     );
 
     let logout = (
-        <li>
+        <li key={'logout'}>
             <Link to="/logout" id="tmNavLink8" className="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-8">
                 <i className="fas fa-sign-out-alt tm-nav-fa-icon"></i>
                 <span>Logout</span>
@@ -40,31 +40,31 @@ const Sidebar = () => {
             <div className="inner">
                 <nav id="tmMainNav" className="tm-main-nav">
                     <ul>
-                        <li>
+                        <li key={'intro'}>
                             <Link to="/" id="tmNavLink1" className="scrolly active" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-1">
                                 <i className="fas fa-home tm-nav-fa-icon"></i>
                                 <span>Introduction</span>                                    
                             </Link>
                         </li>
-                        <li>
+                        <li key={'services'}>
                             <Link to="/services" id="tmNavLink3" className="scrolly" data-bg-img="constructive_bg_03.jpg" data-page="#tm-section-3">
                                 <i className="fas fa-cogs tm-nav-fa-icon"></i>
                                 <span>Services</span>
                             </Link>
                         </li>
-                        <li>
+                        <li key={'ndt'}>
                             <Link to="/products" id="tmNavLink5" className="scrolly" data-bg-img="constructive_bg_03.jpg" data-page="#tm-section-5">
                                 <i className="fas fa-balance-scale tm-nav-fa-icon"></i>
                                 <span>NDT Methods</span>
                             </Link>
                         </li>
-                        <li>
+                        <li key={'projects'}>
                             <Link to="/projects" id="tmNavLink2" className="scrolly" data-bg-img="constructive_bg_02.jpg" data-page="#tm-section-2" data-page-type="carousel">
                                 <i className="fas fa-map tm-nav-fa-icon"></i>
                                 <span>Projects</span>
                             </Link>
                         </li>
-                        <li>
+                        <li key={'contactus'}>
                             <Link to="/contacts" id="tmNavLink4" className="scrolly" data-bg-img="constructive_bg_04.jpg" data-page="#tm-section-4">
                                 <i className="fas fa-comments tm-nav-fa-icon"></i>
                                 <span>Contact Us</span>

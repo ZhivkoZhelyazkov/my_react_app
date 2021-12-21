@@ -33,7 +33,7 @@ function Create() {
             <div className="tm-bg-transparent-black tm-contact-box-pad">
                 <div className="row mb-4">
                     <div className="col-sm-12">
-                        <header><h2 className="tm-text-shadow">Create Product</h2></header>
+                        <header><h2 className="tm-text-shadow">Add New NDT Method</h2></header>
                     </div>
                 </div>
                 <div className="row tm-page-5-content">
@@ -68,8 +68,7 @@ function Create() {
                     </div>
                     <div className="col-md-6 col-sm-12 tm-contact-col">
                         <div className="tm-address-box">
-                            <p>Aliquam interdum, nisl sedd faucibus tempor, massa velit laoreet ipsum, et faucibus sapien magna at enim. Suspendisse a dictum tortor.</p>
-                            <p>Curabitur venenatis leo in augue convallis, vulputate sollicitudin ex maximus.</p>
+                            <h5>Here you may add your test method.</h5>
                         </div>
                     </div>
                 </div>
