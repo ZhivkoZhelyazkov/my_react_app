@@ -24,6 +24,9 @@ export const create = async (productData, token) => {
         body: JSON.stringify(productData)
     });
     let result = await response.json();
+    
+    console.log(token);
+    
     return result;
 };
 
