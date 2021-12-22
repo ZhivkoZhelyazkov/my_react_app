@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import * as productService from '../../services/productService';
 import useProductState from '../../hooks/useProductState';
-
+import { useAuthContext } from '../../contexts/AuthContext';
 
 const types = [
     { value: 'Coating', text: 'Coating' },
@@ -16,11 +16,18 @@ const Edit = () => {
     const { productId } = useParams();
     const [product, setProduct] = useProductState(productId);
     const [errors, setErrors] = useState({ title: false });
-    
+    const { user } = useAuthContext();
 
     const productEditSubmitHandler = (e) => {
         e.preventDefault();
-        let productData = Object.fromEntries(new FormData(e.currentTarget));
+
+        let formData = new FormData(e.currentTarget);
+        let title = formData.get('title');
+        let description = formData.get('description');
+        let imageUrl = formData.get('imageUrl');
+        let type = formData.get('type');
+        let productData = {title, description, imageUrl, type, author: user.email.split('@')[0]};
+
         productService.update(productId, productData)
             .then(response => {
                 navigate('/products');
