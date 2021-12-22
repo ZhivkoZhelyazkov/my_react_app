@@ -58,18 +58,18 @@ const Sidebar = () => {
                                 <span>NDT Methods</span>
                             </Link>
                         </li>
-                        <li key={'projects'}>
+                        {/* <li key={'projects'}>
                             <Link to="/projects" id="tmNavLink2" className="scrolly" data-bg-img="constructive_bg_02.jpg" data-page="#tm-section-2" data-page-type="carousel">
                                 <i className="fas fa-map tm-nav-fa-icon"></i>
                                 <span>Projects</span>
                             </Link>
-                        </li>
-                        <li key={'contactus'}>
+                        </li> */}
+                        {/* <li key={'contactus'}>
                             <Link to="/contacts" id="tmNavLink4" className="scrolly" data-bg-img="constructive_bg_04.jpg" data-page="#tm-section-4">
                                 <i className="fas fa-comments tm-nav-fa-icon"></i>
                                 <span>Contact Us</span>
                             </Link>
-                        </li>
+                        </li> */}
 
                         {user.email ? logout : [userNav, guestNav]}
 

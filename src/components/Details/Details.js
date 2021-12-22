@@ -67,6 +67,9 @@ function Details() {
                         <div className="col-md-6 col-sm-12 tm-contact-col">
                             <section className="contact-form">
                                 <div className="form-group">
+                                    <p id="product_author" name="author" className="form-control">Author: {product.author}</p>
+                                </div>
+                                <div className="form-group">
                                     <p id="product_title" name="title" className="form-control">Title: {product.title}</p>
                                 </div>
                                 <div className="form-group">

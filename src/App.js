@@ -1,15 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
 
 import { AuthProvider } from './contexts/AuthContext';
+import PrivateRoute from './Common/PrivateRoute';
 
 import Loader from './components/Loader';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Intro from './components/Intro';
-import Projects from './components/Projects';
 import Services from './components/Services';
 import Products from './components/Products';
-import ContactUs from './components/ContactUs';
 import Register from './components/Register';
 import Login from './components/Login';
 import Logout from './components/Logout';
@@ -18,8 +17,6 @@ import Create from './components/Create';
 import Details from './components/Details';
 import Edit from './components/Edit';
 import ErrorPage from './components/ErrorPage';
-
-import PrivateRoute from './Common/PrivateRoute';
 
 
 function App() {
@@ -36,8 +33,6 @@ function App() {
                                 <Route path="/" element={<Intro />} />
                                 <Route path="/services" element={<Services />} />
                                 <Route path="/products" element={<Products />} />
-                                <Route path="/projects" element={<Projects />} />
-                                <Route path="/contacts" element={<ContactUs />} />
                                 <Route path="/login" element={<Login />} />
                                 <Route path="/logout" element={<Logout />} />
                                 <Route path="/register" element={<Register />} />
@@ -63,3 +58,16 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+// import Projects from './components/Projects';
+// import ContactUs from './components/ContactUs';
+// <Route path="/projects" element={<Projects />} />
+// <Route path="/contacts" element={<ContactUs />} />

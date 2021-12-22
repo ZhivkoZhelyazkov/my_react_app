@@ -37,8 +37,8 @@ const Edit = () => {
         let currentTitle = e.target.value;
         if (currentTitle.length < 3) {
             setErrors(state => ({ ...state, title: 'The title should be at least 3 characters long.' }));
-        } else if (currentTitle.length > 15) {
-            setErrors(state => ({ ...state, title: 'The title should be at most 15 characters long.' }));
+        } else if (currentTitle.length > 30) {
+            setErrors(state => ({ ...state, title: 'The title should be at most 30 characters long.' }));
         } else {
             setErrors(state => ({ ...state, title: false }));
         }

@@ -21,7 +21,8 @@ function Create() {
             title,
             description,
             imageUrl,
-            type
+            type,
+            author: user.email.split('@')[0]
         }, user.accessToken)
             .then(response => {
                 navigate('/products');
